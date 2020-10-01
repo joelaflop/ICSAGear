@@ -1,0 +1,117 @@
+<form class="m-4">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" [formControl]="firstName">
+
+        </div>
+        <div class="form-group col-md-3">
+            <label for="lastName1">Last Name</label>
+            <input type="text" class="form-control" [formControl]="lastName">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" [formControl]="email">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.errors.required">
+                    Name is required.
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" [formControl]="city">
+            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                <div *ngIf="city.errors.required">
+                    City is required.
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control" [formControl]="state">
+                <option selected>Choose...</option>
+                <option>AL</option>
+                <option>PA</option>
+                <option>NJ</option>
+                <option>NY</option>
+                <option>DE</option>
+            </select>
+            <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+                <div *ngIf="state.errors.required || state.errors.forbiddenName">
+                    Name is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" [formControl]="zip">
+            <div *ngIf="zip.invalid && (zip.dirty || zip.touched)" class="alert alert-danger">
+                <div *ngIf="zip.errors.required">
+                    Name is required.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="searchTerms">Item Search Terms</label>
+            <input type="text" class="form-control" [formControl]="searchTerms">
+            <div *ngIf="searchTerms.invalid && (searchTerms.dirty || searchTerms.touched)" class="alert alert-danger">
+                <div *ngIf="searchTerms.errors.required">
+                    Name is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="itemCategory">Item Category</label>
+            <select id="itemCategory" class="form-control" [formControl]="category">
+                <option selected>Choose...</option>
+                <option>Gloves</option>
+                <option>Spray Top</option>
+                <option>Spray Pants</option>
+                <option>Boots</option>
+                <option>Life Jacket</option>
+            </select>
+            <div *ngIf="category.invalid && (category.dirty || category.touched)" class="alert alert-danger">
+                <div *ngIf="category.errors.required || category.errors.forbiddenName">
+                    category is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="Condition">Condition</label>
+            <select id="Condition" class="form-control" [formControl]="condition">
+                <option selected>Choose...</option>
+                <option>Brand New</option>
+                <option>Slightly Used</option>
+                <option>Used</option>
+                <option>Broken</option>
+            </select>
+            <div *ngIf="condition.invalid && (condition.dirty || condition.touched)" class="alert alert-danger">
+                <div *ngIf="condition.errors.required || condition.errors.forbiddenName">
+                    condition is required.
+                </div>
+            </div>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Add an Image</label>
+                <input type="file" class="form-control-file" [formControl]="image">
+            </div>
+        </form>
+    </div>
+    <!-- <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+                Check me out
+            </label>
+        </div>
+    </div> -->
+    <button type="submit" class="btn btn-primary" (click)="submit()">Post</button>
+</form>
